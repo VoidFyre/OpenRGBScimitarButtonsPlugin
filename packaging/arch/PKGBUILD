@@ -1,0 +1,33 @@
+pkgname=openrgb-plugin-scimitar-buttons
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="OpenRGB plugin that keeps Corsair Scimitar RGB Elite side buttons working and remappable"
+arch=('x86_64')
+url="https://github.com/VoidFyre/OpenRGBScimitarButtonsPlugin"
+license=('GPL-2.0-or-later')
+depends=('openrgb' 'qt6-base' 'glibc' 'gcc-libs')
+makedepends=('git')
+source=("git+$url.git#tag=v$pkgver"
+        "git+https://gitlab.com/CalcProgrammer1/OpenRGB.git#tag=release_1.0")
+sha256sums=('SKIP'
+            'SKIP')
+
+prepare() {
+  cd OpenRGBScimitarButtonsPlugin
+  git submodule init
+  git config submodule.OpenRGB.url "$srcdir/OpenRGB"
+  git -c protocol.file.allow=always submodule update
+}
+
+build() {
+  cd OpenRGBScimitarButtonsPlugin
+  mkdir -p build
+  cd build
+  qmake6 ../OpenRGBScimitarButtonsPlugin.pro PREFIX=/usr
+  make
+}
+
+package() {
+  cd OpenRGBScimitarButtonsPlugin/build
+  make INSTALL_ROOT="$pkgdir" install
+}

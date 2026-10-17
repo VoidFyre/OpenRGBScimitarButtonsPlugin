@@ -1,0 +1,10 @@
+{
+    "Id" : "scimitarbuttonsplugin",
+    "Name" : "Scimitar Buttons",
+    "VendorId" : "community",
+    "Version" : "1.0.0",
+    "VersionStr" : "1.0.0",
+    "Url" : "https://github.com/VoidFyre/OpenRGBScimitarButtonsPlugin",
+    "Description" : "Keeps the Corsair Scimitar RGB Elite side buttons working while OpenRGB controls its lighting, and maps them to any key",
+    "OpenRGBPluginAPIVersion" : 5
+}

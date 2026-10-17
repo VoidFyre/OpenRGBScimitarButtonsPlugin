@@ -1,0 +1,10 @@
+build/
+*.so
+*.o
+moc_*
+Makefile
+.qmake.stash
+packaging/arch/src/
+packaging/arch/pkg/
+packaging/arch/*.pkg.tar.*
+packaging/arch/OpenRGBScimitarButtonsPlugin/

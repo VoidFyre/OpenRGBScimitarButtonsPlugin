@@ -1,0 +1,4 @@
+# OpenRGB Scimitar Buttons plugin: let the logged-in user create the virtual
+# keyboard that types the side buttons. Access to the mouse itself comes from
+# OpenRGB's own udev rules (60-openrgb.rules).
+KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
